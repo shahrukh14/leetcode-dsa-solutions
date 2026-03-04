@@ -3,14 +3,15 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (nums, target) {
-    const map = new Map();
-
+function twoSum(nums, target) {
+    const map = {}; 
     for (let i = 0; i < nums.length; i++) {
-        const need = target - nums[i];
-        if (map.has(need)) {
-            return [map.get(need), i];
+        const complement = target - nums[i];
+
+        if (map.hasOwnProperty(complement)) {
+            return [map[complement], i];
         }
-        map.set(nums[i], i);
+
+        map[nums[i]] = i;
     }
-};
+}
