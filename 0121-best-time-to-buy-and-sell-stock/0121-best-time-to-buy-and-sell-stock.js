@@ -2,17 +2,24 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
-    let min = prices[0];
-    let profit = 0;
+function maxProfit(prices) {
+    let minPrice = Infinity;
+    let maxProfit = 0;
 
-    for (let i = 1; i < prices.length; i++) {
-        if (prices[i] < min) {
-            min = prices[i];
-        } else {
-            profit = Math.max(profit, prices[i] - min);
+    for (let price of prices) {
+        // update minimum buying price
+        if (price < minPrice) {
+            minPrice = price;
+        }
+
+        // calculate profit if sold today
+        let profit = price - minPrice;
+
+        // update max profit
+        if (profit > maxProfit) {
+            maxProfit = profit;
         }
     }
 
-    return profit;
-};
+    return maxProfit;
+}
