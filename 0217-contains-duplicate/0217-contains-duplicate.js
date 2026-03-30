@@ -11,6 +11,6 @@ var containsDuplicate = function(nums) {
         }
         seen[num] = true;
     }
-
     return false;
 };
+
