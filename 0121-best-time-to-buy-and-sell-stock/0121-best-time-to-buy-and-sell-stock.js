@@ -14,6 +14,5 @@ var maxProfit = function(prices) {
             maxProfit = Math.max(maxProfit, profit);
         }
     }
-
     return maxProfit;
 };
